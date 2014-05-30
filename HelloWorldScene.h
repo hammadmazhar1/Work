@@ -20,54 +20,43 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include "SimpleAudioEngine.h"
 #include "Swipe.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 using namespace std;
 
 class HelloWorld : public cocos2d::CCLayer
 {
-	// private variables
+    public:
+		HelloWorld();
+		~HelloWorld();
+		virtual bool init();  
+		static cocos2d::CCScene* scene();
+		CREATE_FUNC(HelloWorld);
 	
-	float setScreenX, setScreenY, doubleTapTimer, imageTimer;
-	CCSprite *test; CCSprite *reset_score;
-	bool selected, firstTap, normalSize;
-	int inc, score, imageIndex, swipeIndex;
-	CCLabelTTF* disp_score;
-	//s_Swipe* swipe;
-	
-	// functions
-	void func_animate(cocos2d::CCTime dt);
-	void func_doubleTapTimer(cocos2d::CCTime dt);
-	
-	
-  public:
-	
-	HelloWorld();
-	~HelloWorld();
-	// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-	virtual bool init();  
-
-	// there's no 'id' in cpp, so we recommend to return the exactly class pointer
-	static cocos2d::CCScene* scene();
-	// a selector callback
-	//virtual void menuCloseCallback(CCObject* pSender);
-
-	// implement the "static create()" method manually
-	CREATE_FUNC(HelloWorld);
+    protected:
 	 
-	//void registerWithTouchDispatcher();
-
+    private:
+		// VARIABLES
+		float setScreenX, setScreenY;
+		CCSprite *test;
+		// bool ;
+		int score;
+		CCLabelTTF* disp_score;
+		Swipe* swipe;
+		string temp_str;
+		
+		// FUNCTIONS
+		void func_animate(cocos2d::CCTime dt);
+		void func_doubleTapTimer(cocos2d::CCTime dt);
+		void func_deleteSwipes(cocos2d::CCTime dt);
 	
-  protected:
-	 
-  private:
-	
-	void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
-	void ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
-	void ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
-	void keyBackClicked();
+		// DEFAULTS
+		void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+		void ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+		void ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+		void keyBackClicked();
 };
 
 #endif  // __HELLOWORLD_SCENE_H__

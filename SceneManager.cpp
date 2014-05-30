@@ -30,7 +30,15 @@ CCScene* SceneManager::scene(){
 	// return the scene
 	return scene;
 }
-
+CCSprite* SceneManager::func_createImage(char const* name, int anchorx, int anchory, int posx, int posy) {
+	CCSprite* temp = CCSprite::create(name);
+	temp->setAnchorPoint(ccp(anchorx, anchory));
+	temp->setPositionX(posx*setScreenX);
+	temp->setPositionY(posy*setScreenY);
+	temp->setScaleX(setScreenX);
+	temp->setScaleY(setScreenY);
+	return temp;
+}
 SceneManager::SceneManager(void)
 {
 }
