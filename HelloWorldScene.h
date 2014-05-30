@@ -22,6 +22,7 @@
 #include "cocos2d.h"
 #include "Swipe.h"
 #include "SimpleAudioEngine.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 using namespace std;
@@ -40,12 +41,13 @@ class HelloWorld : public cocos2d::CCLayer
     private:
 		// VARIABLES
 		float setScreenX, setScreenY;
-		CCSprite *test;
 		// bool ;
 		int score;
 		CCLabelTTF* disp_score;
 		Swipe* swipe;
 		string temp_str;
+		
+		CCSprite *frontdesk, *backdesk, *door, *sun, *background, *board, *shelf, *globe, *cabinet, *pot, *mat, *clock, *wall, *window, *needleM, *needleH, *clockC;
 		
 		// FUNCTIONS
 		void func_animate(cocos2d::CCTime dt);

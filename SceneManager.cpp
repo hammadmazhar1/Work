@@ -3,14 +3,15 @@
 #include "HelloWorldScene.h"
 #include "SplashScreen.h"
 #include "Menu.h"
-#include "LevelSelector.h"
-#include "ScoreScreen.h"
-#include "Store.h"
-#include "Level2.h"
+// #include "Menu.h"
+// #include "LevelSelector.h"
+// #include "ScoreScreen.h"
+// #include "Store.h"
+// #include "Level2.h"
 
 USING_NS_CC;
 
-int SceneManager::CurrentLevel;
+float SceneManager::setScreenX, SceneManager::setScreenY;
 
 CCScene* SceneManager::scene(){
 	CCScene * scene = NULL;
@@ -65,11 +66,11 @@ bool SceneManager::init(){
 }
 
 void SceneManager::StartSplashScene(CCNode* sender){
-	CCDirector::sharedDirector()->replaceScene(SplashScreen::scene()); 
+	 CCDirector::sharedDirector()->replaceScene(SplashScreen::scene()); 
 }
 void SceneManager::StartMenuScene(CCNode* sender) {
 	CCDirector::sharedDirector()->replaceScene(Menu::scene());
 }
 void StartLevelSelector(CCNode* sender) {
-	CCDirector:.sharedDirector()->replaceScene(LevelSelector::scene());
+	// CCDirector:.sharedDirector()->replaceScene(LevelSelector::scene());
 }

@@ -6,7 +6,14 @@
 USING_NS_CC;
 using namespace cocos2d;
 using namespace CocosDenshion;
+Menu::Menu()
+{
+}
 
+
+Menu::~Menu()
+{
+}
 CCScene* Menu::scene(){
 	CCScene * scene = NULL;
 	do 
@@ -34,7 +41,17 @@ bool Menu::init() {
 	this->addChild(bk,1);
 	runkid = SceneManager::func_createImage("runkid1.png",0,1,100,200);
 	this->addChild(runkid,1);
+	AnimateCounter = 0;
+	runbehind1 = runscream1 = runlook = runforward2 = runscream2 = runbehind2 = runwetstart = runwet = false;
+	runforward1 = true;
+	behindcounter = forwardcounter = lookcounter = wetcounter = angrycounter = 0;
+	playscream = true;
+	playsplash = true;
+	playgrr = true;
+	abtusnotif = false;
+	soundpress = musicpress = false;
 	
+	schedule(schedule_selector(Menu::animateKid), 0.1);
 	this->setTouchEnabled(true);
 	this->setKeypadEnabled(true);
 	return true;
@@ -329,10 +346,11 @@ void Menu::animateKid(CCTime dt){
 			break;
 		}
 	}
-
+	float setScreenX = SceneManager::setScreenX;
+	float setScreenY = SceneManager::setScreenY;
 	AnimateCounter = (AnimateCounter+1)%6;
 	if(runlook == false && runwetstart == false){
-
+		
 		if(runforward1 == true || runscream2 == true || runbehind2 == true){
 			runkid->setPositionX(runkid->getPositionX() + 30*setScreenX);
 		}else{
@@ -366,7 +384,7 @@ void Menu::animateKid(CCTime dt){
 		AnimateCounter = 0;
 		runwet = false;
 		lookcounter = forwardcounter = angrycounter = 0;
-		balloon->setPositionX(-1050*setScreenX);
+		//balloon->setPositionX(-1050*setScreenX);
 	}
 
 }

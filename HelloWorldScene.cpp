@@ -55,10 +55,27 @@ bool HelloWorld::init()
 		setScreenX = screenSize.width/800;
 		setScreenY = screenSize.height/480;
 		
-		test = func_createImage("bully1.png", 0, 1, 400, 300, 4, this);
+		frontdesk = SceneManager::func_createImage("frontdesk.png", 0, 1, 35, 235); this->addChild(frontdesk, 6);
+		backdesk = SceneManager::func_createImage("backdesk.png", 0, 1, 118, 280); this->addChild(backdesk, 5);
+		door = SceneManager::func_createImage("door.png", 0, 1, 590, 464); this->addChild(door, 3);
+		sun = SceneManager::func_createImage("sun.png", 0, 1, 0, 480); this->addChild(sun, 0);
+		board = SceneManager::func_createImage("board.png", 0, 1, 314, 446); this->addChild(board, 3);
+		wall = SceneManager::func_createImage("wall.png", 0, 1, 0, 480); this->addChild(wall, 2);
+		shelf = SceneManager::func_createImage("shelf.png", 0, 1, 128, 472); this->addChild(shelf, 3);
+		globe = SceneManager::func_createImage("globe.png", 0, 1, 155, 365); this->addChild(globe, 3);
+		clock = SceneManager::func_createImage("clock.png", 0, 1, 530, 480); this->addChild(clock, 3);
+		needleH = SceneManager::func_createImage("needleH.png", 0, 1, 530, 483); this->addChild(needleH, 3);
+		needleM = SceneManager::func_createImage("needleMin.png", 0, 1, 530, 483); this->addChild(needleM, 3);
+		clockC = SceneManager::func_createImage("clockCenter.png", 0, 1, 530, 480); this->addChild(clockC, 3);
+		cabinet = SceneManager::func_createImage("cabinet.png", 0, 1, 732, 288); this->addChild(cabinet, 5);
+		pot = SceneManager::func_createImage("pot.png", 0, 1, 735, 338); this->addChild(pot, 5);
+		mat = SceneManager::func_createImage("mat.png", 0, 1, 616, 98); this->addChild(mat, 3);
+		window = SceneManager::func_createImage("window.png", 0, 1, 0, 480); this->addChild(window, 3);
+		background = SceneManager::func_createImage("bknoelements.png", 0, 0, 0, 0); this->addChild(background, 1);
 		
-		
-		
+		// animate clock
+		needleM->setAnchorPoint(ccp(0.5, 0)); needleM->runAction(CCRotateTo::create(60,1080)); needleM->setPosition(ccp(565*setScreenX, 445*setScreenY));
+		needleH->setAnchorPoint(ccp(0, 0)); needleH->runAction(CCRotateTo::create(60,60)); needleH->setPosition(ccp(565*setScreenX, 445*setScreenY));
 		
 		// DISPLAY
 		
@@ -117,7 +134,6 @@ void HelloWorld::keyBackClicked()
 }
 
 #pragma region MyFunctions
-
 
 void HelloWorld::func_animate(cocos2d::CCTime dt) {
 	

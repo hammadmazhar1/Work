@@ -34,7 +34,7 @@ bool SplashScreen::init() {
 	splash = SceneManager::func_createImage("impart.png",0,1,0,480);
     this->addChild(splash, 1);
 
-	splash = SceneManager::func_createImage("splashscreen.png",0,1,0,480);
+	splash2 = SceneManager::func_createImage("splashscreen.png",0,1,0,480);
     this->addChild(splash2, 1);
 	splash2->setVisible(false);
 
