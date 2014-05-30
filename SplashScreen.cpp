@@ -31,19 +31,10 @@ bool SplashScreen::init() {
     if (!CCLayer::init()) {
         return false;
     }
-
-    splash = CCSprite::create("impart.png");
-	splash->setAnchorPoint(ccp(0,1));
-	splash->setPosition(ccp(0, 480*SceneManager::setScreenY));
-	splash->setScaleX(SceneManager::setScreenX);
-	splash->setScaleY(SceneManager::setScreenY);
+	splash = SceneManager::func_createImage("impart.png",0,1,0,480);
     this->addChild(splash, 1);
 
-	splash2 = CCSprite::create("splashscreen.png");
-	splash2->setAnchorPoint(ccp(0,1));
-	splash2->setPosition(ccp(0, 480*SceneManager::setScreenY));
-	splash2->setScaleX(SceneManager::setScreenX);
-	splash2->setScaleY(SceneManager::setScreenY);
+	splash = SceneManager::func_createImage("splashscreen.png",0,1,0,480);
     this->addChild(splash2, 1);
 	splash2->setVisible(false);
 
