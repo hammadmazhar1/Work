@@ -18,7 +18,7 @@ public:
 	void StartSplashScene(CCNode* sender);
 	void StartMenuScene(CCNode* sender);
 	void StartLevelSelector(CCNode* sender);
-	static CCSprite* func_createImage(char const* , int, int, int, int);
+	static CCSprite* func_createImage(char const* name, int anchorx, int anchory, int posx, int posy);
 	static float setScreenX, setScreenY;
 };
 
