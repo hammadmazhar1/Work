@@ -7,7 +7,7 @@ class Menu :
 	public cocos2d::CCLayer
 {
 	private:
-		CCSprite *bk,*runkid;
+		CCSprite *bk, *runkid, *logo, *play, *options, *store, *playhover, *storehover, *ophover;
 		int AnimateCounter;
 		bool runforward1, runbehind1, runscream1, runlook, runforward2, runbehind2, runscream2, runwet, runwetstart;
 		int behindcounter, forwardcounter, lookcounter, wetcounter, angrycounter;
